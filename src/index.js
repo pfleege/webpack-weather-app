@@ -1,32 +1,39 @@
 import "./styles.css";
-import getWeatherData from "./modules/getWeatherData";
 import currentTimeAndTemperature from "./modules/currentTimeAndTemperature";
 const container = document.querySelector("#pageContent");
 
 function loadPage() {
-  /* const container = document.querySelector("#pageContent"); */
-  /* container.appendChild(getWeatherData("helsinki")); */
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
   container.appendChild(currentTimeAndTemperature("helsinki"));
 }
 
 loadPage();
 
 const searchBar = document.querySelector(".searchLocation");
-const submitLocation = document.querySelector(".submitLocation");
 
 searchBar.addEventListener("input", recordInput);
+searchBar.addEventListener("keypress", recordKey);
+
 let location = "";
-function recordInput(evt) {
-  location = evt.target.value;
+
+function recordKey(evt) {
+  if (evt.key === "Enter") {
+    evt.preventDefault();
+    updateLocation();
+    searchBar.value = "";
+  }
 }
 
-submitLocation.addEventListener("click", updateLocation);
+function recordInput(evt) {
+  evt.preventDefault();
+  location = evt.target.value;
+}
 
 function updateLocation() {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
   container.appendChild(currentTimeAndTemperature(location));
-
-  searchBar.value = location;
 }

@@ -4,17 +4,6 @@ function currentTimeAndTemperature(city) {
     "currentTimeAndTemperatureContainer"
   );
 
-  /* const container = document.querySelector("#pageContent"); */
-
-  /*   const searchBar = document.createElement("input");
-  searchBar.setAttribute("type", "text");
-  searchBar.setAttribute("value", "");
-  searchBar.classList.add("searchLocation");
-
-  const submitLocation = document.createElement("button");
-  submitLocation.classList.add("submitLocation");
-  submitLocation.textContent = "Search"; */
-
   const dateTimeLocationContainer = document.createElement("div");
   dateTimeLocationContainer.classList.add("dateTimeLocationContainer");
 
@@ -33,9 +22,11 @@ function currentTimeAndTemperature(city) {
   const locationName = document.createElement("div");
   locationName.classList.add("locationName");
 
+  const currentWeatherConditions = document.createElement("div");
+  currentWeatherConditions.classList.add("currentWeatherConditions");
+
   const currentTempContainer = document.createElement("div");
   currentTempContainer.classList.add("currentTempContainer");
-  currentTempContainer.textContent = "";
 
   const currentTemp = document.createElement("div");
   currentTemp.classList.add("currentTemp");
@@ -47,25 +38,39 @@ function currentTimeAndTemperature(city) {
     const KEY = process.env.API_KEY;
     try {
       const response = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${KEY}&q=${setLocation}`,
+        `https://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${setLocation}&days=3`,
         { mode: "cors" }
       );
-      let json = await response.json();
+      const json = await response.json();
       console.log(json);
+      const timeForUpdate = new Date(json.current.last_updated);
+      const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+      const weekDay = days[timeForUpdate.getDay()];
+      const day = timeForUpdate.getDate();
+      const month = timeForUpdate.getMonth() + 1;
+      const hours = timeForUpdate.getHours();
+      const minutePre = timeForUpdate.getMinutes();
+      const minutes = minutePre < 10 ? "0" + minutePre : minutePre;
+
+      const updated = `${weekDay} ${day}.${month}, ${hours}:${minutes}`;
       currentTempIcon.src = json.current.condition.icon;
-      locationName.textContent = json.location.name;
-      currentTempContainer.textContent = json.current.temp_c;
+      currentWeatherConditions.textContent = `Weather condition: ${json.current.condition.text}`;
+      locationName.textContent = `${json.location.name}, ${json.location.country}`;
+      currentTemp.textContent = `Current temperature: ${json.current.temp_c}°C`;
+      currentDate.textContent = `Last updated: ${updated}`;
     } catch (error) {
       console.log(error.message);
     }
   }
-  /* const city = searchBar.value; */
+
   getCurrentWeather(city);
-  /*   dateTimeLocationContainer.appendChild(searchBar);
-  dateTimeLocationContainer.appendChild(submitLocation); */
+
   dateTimeLocationContainer.appendChild(locationName);
   dateTimeLocationContainer.appendChild(currentTempIcon);
-  dateTimeLocationContainer.appendChild(currentTempContainer);
+  dateTimeLocationContainer.appendChild(currentWeatherConditions);
+  dateTimeLocationContainer.appendChild(currentTemp);
+  dateTimeLocationContainer.appendChild(currentDate);
 
   return dateTimeLocationContainer;
 }
