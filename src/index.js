@@ -1,39 +1,43 @@
 import "./styles.css";
-import currentTimeAndTemperature from "./modules/currentTimeAndTemperature";
-const container = document.querySelector("#pageContent");
+import APIconnection from "./modules/connectToAPI";
 
+const container = document.querySelector("#pageContent");
+const searchBar = document.querySelector(".searchLocation");
+let newLocation;
+
+// Initialize page
 function loadPage() {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
-  container.appendChild(currentTimeAndTemperature("helsinki"));
+  APIconnection("helsinki");
 }
 
 loadPage();
 
-const searchBar = document.querySelector(".searchLocation");
-
+// Activate search bar
 searchBar.addEventListener("input", recordInput);
 searchBar.addEventListener("keypress", recordKey);
 
-let location = "";
+// Save input from search bar
+function recordInput(evt) {
+  evt.preventDefault();
+  newLocation = evt.target.value;
+}
 
+// Run API search
 function recordKey(evt) {
   if (evt.key === "Enter") {
     evt.preventDefault();
     updateLocation();
-    searchBar.value = "";
   }
-}
-
-function recordInput(evt) {
-  evt.preventDefault();
-  location = evt.target.value;
 }
 
 function updateLocation() {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
-  container.appendChild(currentTimeAndTemperature(location));
+  const location = newLocation ? newLocation : "helsinki";
+
+  APIconnection(location);
 }
