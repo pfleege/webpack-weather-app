@@ -74,13 +74,13 @@ function dailyWeatherForecast(json) {
   day1Img.src = json.forecast.forecastday[1].day.condition.icon;
   day2Img.src = json.forecast.forecastday[2].day.condition.icon;
 
-  day0High.textContent = `Max: ${json.forecast.forecastday[0].day.maxtemp_c}`;
-  day1High.textContent = `Max: ${json.forecast.forecastday[1].day.maxtemp_c}`;
-  day2High.textContent = `Max: ${json.forecast.forecastday[2].day.maxtemp_c}`;
+  day0High.textContent = `Max: ${json.forecast.forecastday[0].day.maxtemp_c}°C`;
+  day1High.textContent = `Max: ${json.forecast.forecastday[1].day.maxtemp_c}°C`;
+  day2High.textContent = `Max: ${json.forecast.forecastday[2].day.maxtemp_c}°C`;
 
-  day0Low.textContent = `Min: ${json.forecast.forecastday[0].day.mintemp_c}`;
-  day1Low.textContent = `Min: ${json.forecast.forecastday[1].day.mintemp_c}`;
-  day2Low.textContent = `Min: ${json.forecast.forecastday[2].day.mintemp_c}`;
+  day0Low.textContent = `Min: ${json.forecast.forecastday[0].day.mintemp_c}°C`;
+  day1Low.textContent = `Min: ${json.forecast.forecastday[1].day.mintemp_c}°C`;
+  day2Low.textContent = `Min: ${json.forecast.forecastday[2].day.mintemp_c}°C`;
 
   /* console.log(json.location.name); */
   dailyWeatherForecastContent.appendChild(weatherDay0);
