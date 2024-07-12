@@ -89,7 +89,6 @@ function dailyWeatherForecast(json) {
   dailyWeatherForecastContainer.appendChild(dailyWeatherForecastContent);
 
   container.appendChild(dailyWeatherForecastContainer);
-  /* return container; */
 }
 
 export default dailyWeatherForecast;
