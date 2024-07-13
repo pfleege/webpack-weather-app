@@ -2,13 +2,20 @@ import "./styles.css";
 import APIconnection from "./modules/connectToAPI";
 
 const container = document.querySelector("#pageContent");
-const searchBar = document.querySelector(".searchLocation");
+const mainContent = document.querySelector(".mainContent");
+const searchBar = document.querySelector("#searchLocation");
+const hourlyData = document.querySelector(
+  "#pageContent>.hourlyForecastContainer"
+);
 let newLocation;
 
 // Initialize page
 function loadPage() {
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
+  while (mainContent.firstChild) {
+    mainContent.removeChild(mainContent.firstChild);
+  }
+  if (hourlyData) {
+    container.remove(hourlyData);
   }
   APIconnection("helsinki");
 }
@@ -34,8 +41,25 @@ function recordKey(evt) {
 }
 
 function updateLocation() {
-  while (container.firstChild) {
+  /*   while (container.firstChild) {
     container.removeChild(container.firstChild);
+  } */
+  const container = document.querySelector("#pageContent");
+  const mainContent = document.querySelector(".mainContent");
+  const hourlyData = document.querySelector(
+    "#pageContent>.hourlyForecastContainer"
+  );
+  const ics = document.querySelector(".ics-container");
+  while (mainContent.firstChild) {
+    mainContent.removeChild(mainContent.firstChild);
+  }
+  /*   console.log(hourlyData);
+  console.log(ics); */
+  if (hourlyData) {
+    hourlyData.remove();
+  }
+  if (ics) {
+    ics.remove();
   }
   const location = newLocation ? newLocation : "helsinki";
 

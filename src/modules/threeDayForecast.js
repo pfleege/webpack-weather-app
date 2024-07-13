@@ -1,4 +1,5 @@
 const container = document.querySelector("#pageContent");
+const mainContent = document.querySelector(".mainContent");
 
 function dailyWeatherForecast(json) {
   // CREATE ELEMENTS
@@ -87,8 +88,9 @@ function dailyWeatherForecast(json) {
   dailyWeatherForecastContent.appendChild(weatherDay1);
   dailyWeatherForecastContent.appendChild(weatherDay2);
   dailyWeatherForecastContainer.appendChild(dailyWeatherForecastContent);
-
-  container.appendChild(dailyWeatherForecastContainer);
+  mainContent.appendChild(dailyWeatherForecastContainer);
+  container.appendChild(mainContent);
+  /* container.appendChild(dailyWeatherForecastContainer); */
 }
 
 export default dailyWeatherForecast;

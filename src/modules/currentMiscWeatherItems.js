@@ -1,4 +1,5 @@
 const container = document.querySelector("#pageContent");
+const mainContent = document.querySelector(".mainContent");
 import sunriseSunset64 from "../img/sunriseSunset64.png";
 import humidityImage from "../img/humidity.png";
 import chanceOfRainImage from "../img/chanceOfRain.png";
@@ -144,8 +145,10 @@ function currentMiscItems(json) {
   dailyWeatherForecastContent.appendChild(uvContent);
 
   currentMiscWeatherItemsContainer.appendChild(dailyWeatherForecastContent);
+  mainContent.appendChild(currentMiscWeatherItemsContainer);
+  container.appendChild(mainContent);
 
-  container.appendChild(currentMiscWeatherItemsContainer);
+  /* container.appendChild(currentMiscWeatherItemsContainer); */
 }
 
 export default currentMiscItems;

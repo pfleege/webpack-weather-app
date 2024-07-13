@@ -1,4 +1,6 @@
 const container = document.querySelector("#pageContent");
+const mainContent = document.querySelector(".mainContent");
+const hourlyData = document.querySelector(".hourlyForecastContainer");
 
 function currentTimeAndTemperature(json) {
   // CREATE ELEMENTS
@@ -55,15 +57,24 @@ function currentTimeAndTemperature(json) {
 
   // Update page
   function updateLocation() {
-    while (container.firstChild) {
+    /*     while (container.firstChild) {
       container.removeChild(container.firstChild);
+    } */
+    while (mainContent.firstChild) {
+      mainContent.removeChild(mainContent.firstChild);
+    }
+    if (hourlyData) {
+      container.remove(hourlyData);
     }
     dateTimeLocationContainer.appendChild(locationName);
     dateTimeLocationContainer.appendChild(currentTempIcon);
     dateTimeLocationContainer.appendChild(currentWeatherConditions);
     dateTimeLocationContainer.appendChild(currentTemp);
     dateTimeLocationContainer.appendChild(currentDate);
-    container.appendChild(dateTimeLocationContainer);
+    mainContent.appendChild(dateTimeLocationContainer);
+    container.appendChild(mainContent);
+
+    /* container.appendChild(dateTimeLocationContainer); */
   }
   updateLocation();
 }

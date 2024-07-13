@@ -13,4 +13,127 @@ body {
   background-image: url(./img/raindrop.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  color: #fff;
+}
+
+/* .searchAPI {
+  grid-area: search;
+}
+
+.dateTimeLocationContainer {
+  grid-area: current;
+}
+
+.dailyWeatherForecastContainer {
+  grid-area: daily;
+}
+
+.currentMiscWeatherItemsContainer {
+  grid-area: misc;
+}
+
+.hourlyForecastContainer {
+  grid-area: hourly;
+} */
+
+.searchAPI {
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(223, 223, 223, 0.2);
+  height: 100px;
+  margin: 50px 0;
+}
+
+#searchLocation {
+  height: 50px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  background-color: rgba(23, 23, 23, 0.2);
+}
+
+body,
+.searchAPI,
+#pageContent,
+.mainContent,
+.dateTimeLocationContainer,
+.dailyWeatherForecastContainer,
+.currentMiscWeatherItemsContainer,
+.hourlyForecastContainer,
+.hourlyForecastContent,
+.ics-container {
+  display: flex;
+}
+
+body,
+#pageContent,
+.dateTimeLocationContainer,
+.dailyWeatherForecastContainer,
+.currentMiscWeatherItemsContainer {
+  flex-direction: column;
+}
+
+.ics-container {
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.ics-img {
+  height: 25px;
+}
+
+.ics-p {
+  color: #fff;
+  font-family: "Chillax";
+  font-style: italic;
+}
+
+/* TEMPORARY CSS */
+.pageContent {
+  border: 3px solid red;
+  background-color: rgba(223, 223, 223, 0.5);
+  margin: 2px;
+}
+
+.dateTimeLocationContainer,
+.dailyWeatherForecastContainer,
+.currentMiscWeatherItemsContainer,
+.hourlyForecastContainer,
+.ics-container {
+  border: 2px solid blue;
+}
+
+.locationName,
+.weatherIcon,
+.currentWeatherConditions,
+.currentTemp,
+.currentDate {
+  border: 2px solid green;
+}
+
+.dailyWeatherForecastContent,
+.hourlyForecastContent {
+  border: 2px solid orange;
+}
+
+.weatherDay0,
+.weatherDay1,
+.weatherDay2,
+.sunriseSetContainer,
+.humidityContent,
+.rainContent,
+.windContent,
+.uvContent,
+.hour0Container,
+.hour3Container,
+.hour6Container,
+.hour9Container,
+.hour12Container,
+.hour15Container,
+.hour18Container,
+.hour21Container {
+  border: 2px solid magenta;
 }
