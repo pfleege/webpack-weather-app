@@ -61,9 +61,6 @@ function currentTimeAndTemperature(json) {
 
   // Update page
   function updateLocation() {
-    /*     while (container.firstChild) {
-      container.removeChild(container.firstChild);
-    } */
     while (mainContent.firstChild) {
       mainContent.removeChild(mainContent.firstChild);
     }
@@ -79,8 +76,6 @@ function currentTimeAndTemperature(json) {
 
     mainContent.appendChild(dateTimeLocationContainer);
     container.appendChild(mainContent);
-
-    /* container.appendChild(dateTimeLocationContainer); */
   }
   updateLocation();
 }

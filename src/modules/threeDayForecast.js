@@ -111,14 +111,11 @@ function dailyWeatherForecast(json) {
   day1Low.textContent = `Min: ${json.forecast.forecastday[1].day.mintemp_c}°C`;
   day2Low.textContent = `Min: ${json.forecast.forecastday[2].day.mintemp_c}°C`;
 
-  /* console.log(json.location.name); */
-  /* dailyWeatherForecastContent.appendChild(weatherDay0); */
   dailyWeatherForecastContent.appendChild(weatherDay1);
   dailyWeatherForecastContent.appendChild(weatherDay2);
   dailyWeatherForecastContainer.appendChild(dailyWeatherForecastContent);
   mainContent.appendChild(dailyWeatherForecastContainer);
   container.appendChild(mainContent);
-  /* container.appendChild(dailyWeatherForecastContainer); */
 }
 
 export default dailyWeatherForecast;

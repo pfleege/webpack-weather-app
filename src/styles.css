@@ -49,7 +49,7 @@ body {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 body,
@@ -168,6 +168,7 @@ body,
 }
 
 .dailyWeatherForecastContainer {
+  min-width: 140px;
   width: 25vw;
   margin: auto 0;
 }
@@ -212,6 +213,7 @@ body,
 
 .dateTimeLocationContainer,
 .currentMiscWeatherItemsContainer {
+  min-width: 140px;
   width: 20vw;
   max-width: 250px;
 }
@@ -237,4 +239,165 @@ body,
 
 .ics-p {
   font-style: italic;
+}
+
+/*  MEDIA QUERIES */
+@media (max-width: 1160px) {
+  .currentMiscWeatherItemsContainer {
+    width: 23vw;
+  }
+  .dailyWeatherForecastContainer {
+    width: 23vw;
+  }
+}
+
+@media (max-width: 1120px) {
+  .weatherIcon {
+    position: absolute;
+    top: 9rem;
+    left: 15px;
+    height: 15vh;
+  }
+}
+
+@media (max-width: 1035px) {
+  .weatherIcon {
+    position: absolute;
+    top: 11rem;
+    left: 15px;
+    height: 15vh;
+  }
+  .currentMiscWeatherItemsContainer {
+    width: 25vw;
+  }
+  .dailyWeatherForecastContainer {
+    width: 21vw;
+  }
+}
+
+@media (max-width: 970px) {
+  .sunriseSetIcon {
+    height: 60px;
+  }
+  .currentMiscWeatherItemsContainer {
+    width: 26vw;
+  }
+  .dailyWeatherForecastContainer {
+    width: 20vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .currentMiscWeatherItemsContainer {
+    width: 28vw;
+  }
+}
+
+@media (max-width: 830px) {
+  .currentDate,
+  .currentWeatherConditions,
+  .dayHigh,
+  .dayLow,
+  .miscHeading,
+  .sunriseSetText,
+  .miscText {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .currentDate,
+  .currentWeatherConditions,
+  .dayHigh,
+  .dayLow,
+  .miscHeading,
+  .sunriseSetText,
+  .miscText {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 725px) {
+  .humidityContent,
+  .rainContent,
+  .windContent,
+  .uvContent {
+    flex-direction: column;
+    align-items: start;
+  }
+  .miscText {
+    padding-left: 70px;
+  }
+  .currentTemp {
+    font-size: 2rem;
+  }
+  .weatherIcon {
+    height: 64px;
+  }
+  .hourlyForecastContent {
+    flex-direction: column;
+  }
+  .hourContainer {
+    flex-direction: row;
+  }
+  .hour0,
+  .hour3,
+  .hour6,
+  .hour9,
+  .hour12,
+  .hour15,
+  .hour18,
+  .hour21 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .searchAPI {
+    justify-content: end;
+  }
+  #searchLocation {
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 620px) {
+  .mainContent {
+    flex-direction: column;
+  }
+  .dateTimeLocationContainer,
+  .dailyWeatherForecastContainer,
+  .currentMiscWeatherItemsContainer {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+  .currentDate,
+  .currentWeatherConditions,
+  .dayHigh,
+  .dayLow,
+  .miscHeading,
+  .sunriseSetText,
+  .miscText {
+    font-size: 1.2rem;
+  }
+  .humidityContent,
+  .rainContent,
+  .windContent,
+  .uvContent {
+    flex-direction: row;
+    align-items: center;
+  }
+  .miscText {
+    padding-left: 10px;
+  }
+  .sunriseSetIcon {
+    height: 100px;
+  }
+  .weatherIcon {
+    top: 9rem;
+    left: 50px;
+    height: 15vh;
+    max-height: 100px;
+    max-width: 100px;
+  }
 }

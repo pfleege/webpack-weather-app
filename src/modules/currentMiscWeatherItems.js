@@ -29,11 +29,11 @@ function currentMiscItems(json) {
   const sunriseHeading = document.createElement("div");
   sunriseHeading.classList.add("miscHeading");
   const sunriseTime = document.createElement("div");
-  sunriseTime.classList.add("miscText");
+  sunriseTime.classList.add("sunriseSetText");
   const sunsetHeading = document.createElement("div");
   sunsetHeading.classList.add("miscHeading");
   const sunsetTime = document.createElement("div");
-  sunsetTime.classList.add("miscText");
+  sunsetTime.classList.add("sunriseSetText");
   const sunriseSetIcon = document.createElement("img");
   sunriseSetIcon.classList.add("sunriseSetIcon");
 
@@ -141,8 +141,6 @@ function currentMiscItems(json) {
   currentMiscWeatherItemsContainer.appendChild(currentMiscWeatherItemsContent);
   mainContent.appendChild(currentMiscWeatherItemsContainer);
   container.appendChild(mainContent);
-
-  /* container.appendChild(currentMiscWeatherItemsContainer); */
 }
 
 export default currentMiscItems;
