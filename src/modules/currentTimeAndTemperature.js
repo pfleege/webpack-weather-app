@@ -25,6 +25,9 @@ function currentTimeAndTemperature(json) {
   const currentWeatherConditions = document.createElement("div");
   currentWeatherConditions.classList.add("currentWeatherConditions");
 
+  const currentWeatherConditionsText = document.createElement("p");
+  currentWeatherConditionsText.classList.add("currentWeatherConditionsText");
+
   const currentTempContainer = document.createElement("div");
   currentTempContainer.classList.add("currentTempContainer");
 
@@ -46,14 +49,15 @@ function currentTimeAndTemperature(json) {
   const minutePre = timeForUpdate.getMinutes();
   const minutes = minutePre < 10 ? "0" + minutePre : minutePre;
 
-  const updated = `${weekDay} ${day}.${month}, ${hours}:${minutes}`;
+  const updated = `${weekDay} ${day}.${month} at ${hours}:${minutes}`;
 
   // Add data to elements
   currentTempIcon.src = json.current.condition.icon;
-  currentWeatherConditions.textContent = `Weather condition: ${json.current.condition.text}`;
+  currentWeatherConditions.textContent = `Weather condition:`;
+  currentWeatherConditionsText.textContent = `${json.current.condition.text}`;
   locationName.textContent = `${json.location.name}, ${json.location.country}`;
-  currentTemp.textContent = `Current temperature: ${json.current.temp_c}°C`;
-  currentDate.textContent = `Last updated: ${updated}`;
+  currentTemp.textContent = `${json.current.temp_c}°C`;
+  currentDate.textContent = `${updated}`;
 
   // Update page
   function updateLocation() {
@@ -67,10 +71,12 @@ function currentTimeAndTemperature(json) {
       container.remove(hourlyData);
     }
     dateTimeLocationContainer.appendChild(locationName);
-    dateTimeLocationContainer.appendChild(currentTempIcon);
-    dateTimeLocationContainer.appendChild(currentWeatherConditions);
-    dateTimeLocationContainer.appendChild(currentTemp);
     dateTimeLocationContainer.appendChild(currentDate);
+    dateTimeLocationContainer.appendChild(currentTemp);
+    dateTimeLocationContainer.appendChild(currentTempIcon);
+    currentWeatherConditions.appendChild(currentWeatherConditionsText);
+    dateTimeLocationContainer.appendChild(currentWeatherConditions);
+
     mainContent.appendChild(dateTimeLocationContainer);
     container.appendChild(mainContent);
 

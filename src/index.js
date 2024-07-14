@@ -64,4 +64,5 @@ function updateLocation() {
   const location = newLocation ? newLocation : "helsinki";
 
   APIconnection(location);
+  searchBar.value = "";
 }

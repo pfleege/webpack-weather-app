@@ -9,7 +9,7 @@ function icsStatement() {
 
   container.className = "ics-container";
   p.className = "ics-p";
-  p.textContent = "Webpack demo by: ";
+  p.textContent = "API demo by: ";
   a.href = "https://iceeqsolutions.fi";
   a.target = "_blank";
   img.className = "ics-img";

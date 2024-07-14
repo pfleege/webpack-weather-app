@@ -1,4 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
 * {
+  font-family: "Quicksand";
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -16,30 +19,23 @@ body {
   color: #fff;
 }
 
-/* .searchAPI {
-  grid-area: search;
+.weatherLogo {
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  z-index: 10;
+  background-image: url(./img/windCatcherLogo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75px;
+  width: 225px;
 }
-
-.dateTimeLocationContainer {
-  grid-area: current;
-}
-
-.dailyWeatherForecastContainer {
-  grid-area: daily;
-}
-
-.currentMiscWeatherItemsContainer {
-  grid-area: misc;
-}
-
-.hourlyForecastContainer {
-  grid-area: hourly;
-} */
 
 .searchAPI {
   justify-content: center;
   align-items: center;
   background-color: rgba(223, 223, 223, 0.2);
+  min-height: 100px;
   height: 100px;
   margin: 50px 0;
 }
@@ -49,6 +45,11 @@ body {
   border-radius: 10px;
   padding: 5px 10px;
   background-color: rgba(23, 23, 23, 0.2);
+  color: #fff;
+}
+
+body {
+  height: 100vh;
 }
 
 body,
@@ -57,9 +58,22 @@ body,
 .mainContent,
 .dateTimeLocationContainer,
 .dailyWeatherForecastContainer,
+.dayContainer,
+.dayHighLow,
 .currentMiscWeatherItemsContainer,
+/* .currentMiscWeatherItemsContent, */
+.sunriseSetContainer,
+.humidityContent,
+.rainContent,
+.windContent,
+.uvContent,
+.humidityContainer,
+.rainContainer,
+.windContainer,
+.uvContainer,
 .hourlyForecastContainer,
 .hourlyForecastContent,
+.hourContainer,
 .ics-container {
   display: flex;
 }
@@ -68,8 +82,144 @@ body,
 #pageContent,
 .dateTimeLocationContainer,
 .dailyWeatherForecastContainer,
-.currentMiscWeatherItemsContainer {
+.dayHighLow,
+.currentMiscWeatherItemsContainer,
+.hourContainer/* ,
+.humidityContent,
+.rainContent,
+.windContent,
+.uvContent */ {
   flex-direction: column;
+}
+
+#pageContent {
+  height: 100%;
+  width: 80vw;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dateTimeLocationContainer,
+.dailyWeatherForecastContainer,
+.currentMiscWeatherItemsContainer,
+.hourlyForecastContainer {
+  background-color: rgba(10, 10, 10, 0.4);
+  border-radius: 20px;
+  box-shadow: 1px 5px 5px 2px #333;
+}
+
+.mainContent {
+  margin-bottom: 7vh;
+}
+
+.locationName {
+  font-size: 1.5rem;
+}
+
+.currentTemp {
+  font-size: 2.5rem;
+}
+
+.dateTimeLocationContainer {
+  position: relative;
+}
+
+.weatherIcon {
+  position: absolute;
+  top: 6rem;
+  right: 15px;
+  height: 15vh;
+  max-height: 100px;
+  max-width: 100px;
+  align-self: end;
+}
+
+.sunriseSetIcon {
+  height: 100px;
+}
+
+.currentWeatherConditions {
+  font-size: 1.1rem;
+  margin-top: 6rem;
+}
+
+.locationName,
+.currentTemp,
+.currentWeatherConditions,
+.currentMiscWeatherItemsHeading,
+.sunriseSetContainer,
+.humidityContent,
+.rainContent,
+.windContent,
+.uvContent {
+  padding: 15px;
+}
+
+.currentDate {
+  padding: 0 15px;
+}
+
+.currentMiscWeatherItemsHeading {
+  padding: 15px 15px 0 15px;
+}
+
+.mainContent {
+  justify-content: space-between;
+}
+
+.dailyWeatherForecastContainer {
+  width: 25vw;
+  margin: auto 0;
+}
+
+.dailyWeatherForecastContent {
+  padding-bottom: 20px;
+}
+
+.dayDate {
+  font-size: 1.3rem;
+  padding: 15px 15px 0 15px;
+}
+
+.sunriseSetContainer,
+.humidityContent,
+.rainContent,
+.windContent,
+.uvContent {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dayContainer,
+.humidityContainer,
+.rainContainer,
+.windContainer,
+.uvContainer,
+.hourlyForecastContainer {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hourlyForecastContent {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.miscIcon {
+  height: 30px;
+  padding: 0 10px;
+}
+
+.dateTimeLocationContainer,
+.currentMiscWeatherItemsContainer {
+  width: 20vw;
+  max-width: 250px;
+}
+
+.hourContainer {
+  padding: 15px 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 .ics-container {
@@ -86,54 +236,5 @@ body,
 }
 
 .ics-p {
-  color: #fff;
-  font-family: "Chillax";
   font-style: italic;
-}
-
-/* TEMPORARY CSS */
-.pageContent {
-  border: 3px solid red;
-  background-color: rgba(223, 223, 223, 0.5);
-  margin: 2px;
-}
-
-.dateTimeLocationContainer,
-.dailyWeatherForecastContainer,
-.currentMiscWeatherItemsContainer,
-.hourlyForecastContainer,
-.ics-container {
-  border: 2px solid blue;
-}
-
-.locationName,
-.weatherIcon,
-.currentWeatherConditions,
-.currentTemp,
-.currentDate {
-  border: 2px solid green;
-}
-
-.dailyWeatherForecastContent,
-.hourlyForecastContent {
-  border: 2px solid orange;
-}
-
-.weatherDay0,
-.weatherDay1,
-.weatherDay2,
-.sunriseSetContainer,
-.humidityContent,
-.rainContent,
-.windContent,
-.uvContent,
-.hour0Container,
-.hour3Container,
-.hour6Container,
-.hour9Container,
-.hour12Container,
-.hour15Container,
-.hour18Container,
-.hour21Container {
-  border: 2px solid magenta;
 }

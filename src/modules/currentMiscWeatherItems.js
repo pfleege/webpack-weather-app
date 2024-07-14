@@ -13,8 +13,14 @@ function currentMiscItems(json) {
     "currentMiscWeatherItemsContainer"
   );
 
-  const dailyWeatherForecastContent = document.createElement("div");
-  dailyWeatherForecastContent.classList.add("dailyWeatherForecastContent");
+  const currentMiscWeatherItemsContent = document.createElement("div");
+  currentMiscWeatherItemsContent.classList.add(
+    "currentMiscWeatherItemsContent"
+  );
+  const currentMiscWeatherItemsHeading = document.createElement("h3");
+  currentMiscWeatherItemsHeading.classList.add(
+    "currentMiscWeatherItemsHeading"
+  );
 
   const sunriseSetContainer = document.createElement("div");
   sunriseSetContainer.classList.add("sunriseSetContainer");
@@ -29,7 +35,7 @@ function currentMiscItems(json) {
   const sunsetTime = document.createElement("div");
   sunsetTime.classList.add("miscText");
   const sunriseSetIcon = document.createElement("img");
-  sunriseSetIcon.classList.add("miscIcon");
+  sunriseSetIcon.classList.add("sunriseSetIcon");
 
   sunriseSetContent.appendChild(sunriseHeading);
   sunriseSetContent.appendChild(sunriseTime);
@@ -37,20 +43,6 @@ function currentMiscItems(json) {
   sunriseSetContent.appendChild(sunsetTime);
   sunriseSetContainer.appendChild(sunriseSetContent);
   sunriseSetContainer.appendChild(sunriseSetIcon);
-
-  /*   const sunsetContent = document.createElement("div");
-  sunsetContent.classList.add("sunsetContent");
-  
-  const sunsetContainer = document.createElement("div");
-  sunsetContainer.classList.add("sunsetContainer");
-  const sunsetIcon = document.createElement("img");
-  sunsetIcon.classList.add("miscIcon");
-  
-
-  sunsetContainer.appendChild(sunsetIcon);
-  sunsetContainer.appendChild(sunsetTime);
-  sunsetContent.appendChild(sunsetHeading);
-  sunsetContent.appendChild(sunsetContainer); */
 
   const humidityContent = document.createElement("div");
   humidityContent.classList.add("humidityContent");
@@ -64,9 +56,9 @@ function currentMiscItems(json) {
   humidityPercentage.classList.add("miscText");
 
   humidityContainer.appendChild(humidityIcon);
-  humidityContainer.appendChild(humidityPercentage);
-  humidityContent.appendChild(humidityHeading);
+  humidityContainer.appendChild(humidityHeading);
   humidityContent.appendChild(humidityContainer);
+  humidityContent.appendChild(humidityPercentage);
 
   const rainContent = document.createElement("div");
   rainContent.classList.add("rainContent");
@@ -80,9 +72,9 @@ function currentMiscItems(json) {
   chanceOfRain.classList.add("miscText");
 
   rainContainer.appendChild(rainIcon);
-  rainContainer.appendChild(chanceOfRain);
-  rainContent.appendChild(rainHeading);
+  rainContainer.appendChild(rainHeading);
   rainContent.appendChild(rainContainer);
+  rainContent.appendChild(chanceOfRain);
 
   const windContent = document.createElement("div");
   windContent.classList.add("windContent");
@@ -96,9 +88,9 @@ function currentMiscItems(json) {
   windSpeed.classList.add("miscText");
 
   windContainer.appendChild(windIcon);
-  windContainer.appendChild(windSpeed);
-  windContent.appendChild(windHeading);
+  windContainer.appendChild(windHeading);
   windContent.appendChild(windContainer);
+  windContent.appendChild(windSpeed);
 
   const uvContent = document.createElement("div");
   uvContent.classList.add("uvContent");
@@ -112,15 +104,16 @@ function currentMiscItems(json) {
   uvIndex.classList.add("miscText");
 
   uvContainer.appendChild(uvIcon);
-  uvContainer.appendChild(uvIndex);
-  uvContent.appendChild(uvHeading);
+  uvContainer.appendChild(uvHeading);
   uvContent.appendChild(uvContainer);
+  uvContent.appendChild(uvIndex);
 
   // ACCESS API AND FORMAT DATA
 
+  currentMiscWeatherItemsHeading.textContent = "Current";
   sunriseHeading.textContent = `Sunrise:`;
   sunsetHeading.textContent = `Sunset:`;
-  humidityHeading.textContent = `Humidity`;
+  humidityHeading.textContent = `Humidity:`;
   rainHeading.textContent = `Chance of Rain:`;
   windHeading.textContent = `Wind speed:`;
   uvHeading.textContent = `UV Index:`;
@@ -138,13 +131,14 @@ function currentMiscItems(json) {
   windSpeed.textContent = `${(json.current.wind_kph / 3.6).toFixed(1)} m/s`;
   uvIndex.textContent = `${json.current.uv}`;
 
-  dailyWeatherForecastContent.appendChild(sunriseSetContainer);
-  dailyWeatherForecastContent.appendChild(humidityContent);
-  dailyWeatherForecastContent.appendChild(rainContent);
-  dailyWeatherForecastContent.appendChild(windContent);
-  dailyWeatherForecastContent.appendChild(uvContent);
+  currentMiscWeatherItemsContent.appendChild(currentMiscWeatherItemsHeading);
+  currentMiscWeatherItemsContent.appendChild(sunriseSetContainer);
+  currentMiscWeatherItemsContent.appendChild(humidityContent);
+  currentMiscWeatherItemsContent.appendChild(rainContent);
+  currentMiscWeatherItemsContent.appendChild(windContent);
+  currentMiscWeatherItemsContent.appendChild(uvContent);
 
-  currentMiscWeatherItemsContainer.appendChild(dailyWeatherForecastContent);
+  currentMiscWeatherItemsContainer.appendChild(currentMiscWeatherItemsContent);
   mainContent.appendChild(currentMiscWeatherItemsContainer);
   container.appendChild(mainContent);
 
