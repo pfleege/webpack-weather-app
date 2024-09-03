@@ -39,5 +39,5 @@ In order to boost page performance, we've used Webpack, which automatically comp
 
 <br/><br/>
 
-<p align="center"><a href="https://iceeqsolutions.fi/"><img height="30px" width="211px" src="./src/img/iCS_Logo_Dark.png"></a></p>
+<p align="center"><a href="https://iceeqsolutions.fi/"><img height="61px" width="300px" src="./src/img/iCS_Logo_Light.png"></a></p>
 <br/><br/>
